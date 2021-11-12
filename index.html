@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <title>Cálculos Fermentação Usina</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="image/logo.png" height="150" alt="Logo da Usina Sucroalcooleira">
+        <div id="cabeçalho">
+            <h1>Usina Sucroalcooleira</h1>
+            <hr>
+            <h2>Definição de Parâmetros e Acompanhamento do Processo de Alimentação da Fermentação</h2>
+        </div>
+    </header>
+    <section id="volumesIniciais">  <!-- Entrada dos volumes iniciais de dornas e cubas -->
+        <h3>&#x1F4CA Volumes Iniciais:</h3>
+        <div>
+            <p>VOLUME DF01:</p> <input type="text" class="volInicialDF01" size="5"> <p>m³</p> <select name="contInicialDF01" id="contInicialDF01">
+                <option value="selecione" selected>SELECIONE</option>
+                <option value="fermento">FERMENTO</option>
+                <option value="vinho">VINHO</option>
+                <option value="vazio">VAZIO</option>
+            </select>
+        </div>
+        <div>
+            <p>VOLUME DF02:</p> <input type="text" class="volInicialDF02" size="5"> <p>m³</p> <select name="contInicialDF02" id="contInicialDF02">
+                <option value="selecione" selected>SELECIONE</option>
+                <option value="fermento">FERMENTO</option>
+                <option value="vinho">VINHO</option>
+                <option value="vazio">VAZIO</option>
+            </select>
+        </div>
+        <div>
+            <p>VOLUME DF03:</p> <input type="text" class="volInicialDF03" size="5"> <p>m³</p> <select name="contInicialDF03" id="contInicialDF03">
+                <option value="selecione" selected>SELECIONE</option>
+                <option value="fermento">FERMENTO</option>
+                <option value="vinho">VINHO</option>
+                <option value="vazio">VAZIO</option>
+            </select>
+        </div>
+        <div>
+            <p>VOLUME DF04:</p> <input type="text" class="volInicialDF04" size="5"> <p>m³</p> <select name="contInicialDF04" id="contInicialDF04">
+                <option value="selecione" selected>SELECIONE</option>
+                <option value="fermento">FERMENTO</option>
+                <option value="vinho">VINHO</option>
+                <option value="vazio">VAZIO</option>
+            </select>
+        </div>
+        <div>
+            <p>VOLUME TOTAL CUBAS:</p> <input type="text" class="volInicialCubas" size="5"> <p>m³</p> <select name="contInicialCubas" id="contInicialCubas">
+                <option value="selecione" selected>SELECIONE</option>
+                <option value="fermento">FERMENTO</option>
+                <option value="vazio">VAZIO</option>
+            </select>
+        </div>
+    </section>
+    <section id="cálculoReciclo">  <!-- Cálculo da taxa de reciclo recomendada -->
+        <h3>&#x1F4DD Cálculo da Taxa de Reciclo:</h3>
+        <div>
+            <p>QUAL VOLUME TOTAL DA FERMENTAÇÃO DESEJA TRABALHAR?</p> <input type="text" class="volumeTotalFermentação" size="5"> <p>m³</p>
+        </div>
+        <div>
+            <p>QUANTO DESEJA DEIXAR DE FERMENTO NAS CUBAS AO FINAL DO PROCESSO?</p> <input type="text" class="volumeFinalFermento" size="5"> <p>m³</p>
+        </div>
+        <div>
+            <button onclick="calcularReciclo()">CALCULAR TAXA DE RECICLO RECOMENDADA</button> <p id="igual"> = </p><p class="taxaRecicloCalculada"></p>        
+        </div>
+    </section>
+    <section id="cálculoPrevisões">  <!-- Cálculo das previsões do processo -->
+        <h3>&#x1F4C8 Cálculo das Previsões:</h3>
+        <p id="parâmetros"><ins>Defina os parâmetros de trabalho:</ins></p>
+        <div>
+            <p>TAXA DE RECICLO:</p> <input type="text" class="taxaReciclo" size="5">
+        </div>
+        <div>
+            <p>VAZÃO DE MOSTO:</p> <input type="text" class="vazãoMosto" size="5"> <p>m³/h</p>
+        </div>
+        <div>
+            <p>SP VOLUME DF01:</p> <input type="text" class="spVolumeDF01" size="5"> <p>m³</p>
+        </div>
+        <div>
+            <p>SP VOLUME DF02:</p> <input type="text" class="spVolumeDF02" size="5"> <p>m³</p>
+        </div>
+        <div>
+            <p>SP VOLUME DF03:</p> <input type="text" class="spVolumeDF03" size="5"> <p>m³</p>
+        </div>
+        <div>
+            <button id="botãoPrevisões" onclick="calcularPrevisões()">CALCULAR PREVISÕES</button>
+        </div>
+        <div id="dadosPrevisões">
+            <section id="previsãoTempo">
+                <div id="tempoDF01">
+                    <p>TEMPO PARA ENCHER A DF01:</p> <p class="resTempoDF01"></p> <p>h = </p> <p class="horaDF01"></p> <p>h</p>
+                </div>
+                <div id="tempoDF02"> 
+                    <p>TEMPO PARA ENCHER A DF02:</p> <p class="resTempoDF02"></p> <p>h = </p> <p class="horaDF02"></p> <p>h</p>
+                </div>
+                <div id="tempoDF03">
+                    <p>TEMPO PARA ENCHER A DF03:</p> <p class="resTempoDF03"></p> <p>h = </p> <p class="horaDF03"></p> <p>h</p>
+                </div>
+                <div id="tempoDF04">
+                    <p>TEMPO PARA ENCHER A DF04:</p> <p class="resTempoDF04"></p> <p>h = </p> <p class="horaDF04"></p> <p>h</p>
+                </div>
+                <div id="tempoFermentação">
+                    <p>TEMPO PARA ENCHER A FERMENTAÇÃO:</p> <p class="resTempoFermentação"></p> <p>h = </p> <p class="horaFermentação"></p> <p>h</p>
+                </div>
+            </section>
+            <section id="previsãoVolume">
+                <div id="peDeCubaDF01">
+                    <p>PÉ-DE-CUBA NA DF01:</p> <p class="resPeDeCubaDF01"></p> <p>m³</p>
+                </div>
+                <div id="fermentoDF02">
+                    <p>VOLUME DE FERMENTO USADO NA DF02:</p> <p class="resFermentoDF02"></p> <p>m³</p>
+                </div>
+                <div id="fermentoDF03"> 
+                    <p>VOLUME DE FERMENTO USADO NA DF03:</p> <p class="resFermentoDF03"></p> <p>m³</p>
+                </div>
+                <div id="fermentoDF04">
+                    <p>VOLUME DE FERMENTO USADO NA DF04:</p> <p class="resFermentoDF04"></p> <p>m³</p>
+                </div>
+                <div id="fermentoCubas">
+                    <p>VOLUME FINAL DE FERMENTO NAS CUBAS:</p> <p class="resFermentoCubas"></p> <p>m³</p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
+

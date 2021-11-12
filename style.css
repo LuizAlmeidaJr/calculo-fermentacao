@@ -1,0 +1,139 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+:root {
+    --corUsina: rgb(80, 190, 80);
+}
+
+header {
+    border-bottom: 2px solid var(--corUsina);
+    display: flex;
+    align-items: center;
+    color: white;
+    background: var(--corUsina);
+    gap: 10px;
+    
+}
+
+h1, h2 {
+    font-family: "Century", sans-serif;
+}
+
+
+#cabeçalho {
+    display:unset;
+    line-height: 2;
+}
+
+
+section {
+    padding: 5px;
+    margin: 5px;
+    line-height: 1.5;
+    border: 5px solid var(--corUsina);
+    border-radius: 10px;
+}
+
+div {
+    display: flex;
+    gap: 5px;
+    margin-top: 1em;
+}
+
+h3 {
+    font-size: 22pt;
+    color: var(--corUsina);
+    font-family: "Monotype Corsiva", sans-serif;
+}
+
+input {
+    text-align: center;
+}
+
+button {
+    background: var(--corUsina);
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2pt solid green;
+    align-items: center;
+}
+
+#igual {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.taxaRecicloCalculada {
+    border: 1pt solid black;
+    padding: 2px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    border-radius: 2px;
+    align-items: center;
+    margin-top: 3px;
+}
+
+#botãoPrevisões {
+    background: var(--corUsina);
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2pt solid green;
+    width: 500px;
+}
+
+#parâmetros {
+    font-size: 16pt;
+}
+
+.vazãoMosto, .spVolumeDF01, .spVolumeDF02, .spVolumeDF03 {
+    margin-left: 9px;
+}
+
+#dadosPrevisões {
+    display: flex;
+    justify-content: space-between;
+    background: var(--corUsina);
+    border-radius: 2px;
+}
+
+#previsãoTempo {
+    border: none;
+    font-weight: bold;
+}
+
+#previsãoVolume {
+    border: none;
+    font-weight: bold;
+    padding-right: 90px;
+}
+
+.resTempoDF01, .resTempoDF02, .resTempoDF03, .resTempoDF04, .resTempoFermentação, .resPeDeCubaDF01, .resFermentoDF02, .resFermentoDF03, .resFermentoDF04, .resFermentoCubas, .horaDF01, .horaDF02, .horaDF03, .horaDF04, .horaFermentação {
+    border: 1pt solid green;
+    height: 25px;
+    width: 70px;
+    text-align: center;
+    border-radius: 2px;
+    background: white;
+}
+
+#tempoDF01, #tempoDF02, #tempoDF03, #tempoDF04, #tempoFermentação, #peDeCubaDF01, #fermentoDF02, #fermentoDF03, #fermentoDF04, #fermentoCubas {
+    border: 2pt solid green;
+    border-radius: 2px;
+    color: green;
+    padding: 5px;
+    width: 550px;
+    text-shadow: 0.05em 0.05em var(--corUsina);
+    background: white;
+    align-items: center;
+}
